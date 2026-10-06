@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhinav Maurya | Saranda House Web Admin</title>
+<meta name="description" content="Portfolio of Abhinav Maurya, Web Administrator at Saranda House.">
+<style>
+:root{
+  --bg:#07111f; --bg2:#0b1729; --card:rgba(255,255,255,.065);
+  --text:#f4f7fb; --muted:#aab7c8; --accent:#66e3ff; --accent2:#9b7cff;
+  --line:rgba(255,255,255,.11); --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:radial-gradient(circle at 80% 10%,rgba(102,227,255,.12),transparent 30%),
+             radial-gradient(circle at 10% 30%,rgba(155,124,255,.10),transparent 28%),var(--bg);
+  color:var(--text); line-height:1.6; overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(92%,var(--max));margin:auto}
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:10;
+  background:rgba(7,17,31,.72);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line)
+}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:-.5px}.logo span{color:var(--accent)}
+.links{display:flex;gap:26px;color:var(--muted);font-size:.93rem}
+.links a:hover{color:var(--text)}
+.hero{min-height:100vh;display:grid;place-items:center;padding:130px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border:1px solid var(--line);
+  background:var(--card);border-radius:999px;color:#d7e1ed;font-size:.84rem;margin-bottom:22px
+}
+.dot{width:8px;height:8px;border-radius:50%;background:#66e3ff;box-shadow:0 0 14px #66e3ff}
+h1{font-size:clamp(3rem,7vw,6.2rem);line-height:.98;letter-spacing:-5px;max-width:780px}
+.gradient{background:linear-gradient(100deg,var(--accent),#fff 45%,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin:25px 0;color:var(--muted);font-size:1.1rem;max-width:650px}
+.buttons{display:flex;gap:13px;flex-wrap:wrap}
+.btn{padding:12px 18px;border-radius:12px;border:1px solid var(--line);transition:.2s}
+.btn.primary{background:var(--text);color:#07111f;font-weight:750}.btn:hover{transform:translateY(-2px)}
+.profile-card{
+  padding:28px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
+  box-shadow:0 25px 80px rgba(0,0,0,.25);position:relative;overflow:hidden
+}
+.profile-card:before{content:"";position:absolute;width:180px;height:180px;background:var(--accent);filter:blur(90px);opacity:.18;right:-60px;top:-50px}
+.avatar{height:210px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,#14243b,#101b31);font-size:4.5rem;font-weight:850;letter-spacing:-4px}
+.card-title{margin-top:20px;font-size:1.35rem;font-weight:750}.muted{color:var(--muted)}
+.meta{display:flex;justify-content:space-between;margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:.9rem}
+section{padding:95px 0}
+.section-head{margin-bottom:35px}.eyebrow{text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-size:.72rem;font-weight:800}
+h2{font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-2px;margin-top:8px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+.about p{color:var(--muted);font-size:1.03rem}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.stat{padding:22px;border:1px solid var(--line);background:var(--card);border-radius:18px}
+.stat b{display:block;font-size:1.8rem}.stat span{color:var(--muted);font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.service,.project{padding:25px;border:1px solid var(--line);background:var(--card);border-radius:20px;transition:.25s}
+.service:hover,.project:hover{transform:translateY(-5px);border-color:rgba(102,227,255,.35)}
+.icon{font-size:1.7rem;margin-bottom:16px}.service h3,.project h3{margin-bottom:8px}.service p,.project p{color:var(--muted);font-size:.92rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.tag{padding:6px 9px;border-radius:8px;background:rgba(255,255,255,.07);font-size:.75rem;color:#d8e1ec}
+.timeline{border-left:1px solid var(--line);padding-left:25px;max-width:760px}
+.item{position:relative;margin-bottom:28px}.item:before{content:"";position:absolute;left:-31px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.item h3{font-size:1.1rem}.item p{color:var(--muted);margin-top:5px}
+.contact{padding:38px;border:1px solid var(--line);border-radius:25px;background:linear-gradient(120deg,rgba(102,227,255,.09),rgba(155,124,255,.08))}
+footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media(max-width:800px){
+ .links{display:none}.hero-grid,.about{grid-template-columns:1fr}.hero{padding-top:110px}
+ .grid{grid-template-columns:1fr 1fr}h1{letter-spacing:-3px}
+}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.avatar{height:170px}}
+</style>
+</head>
+<body>
+<nav><div class="container navin">
+  <a class="logo" href="#">SARANDA<span>.</span></a>
+  <div class="links"><a href="#about">About</a><a href="#services">What I Do</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header class="hero">
+<div class="container hero-grid">
+  <div>
+    <div class="badge"><span class="dot"></span> Web Administrator · Saranda House</div>
+    <h1>Building a better <span class="gradient">digital house.</span></h1>
+    <p>I’m <b>Abhinav Maurya</b>, the Web Administrator for Saranda House — focused on keeping our digital presence useful, updated, and student-friendly.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#work">Explore my work ↗</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+  <div class="profile-card">
+    <div class="avatar">AM</div>
+    <div class="card-title">Abhinav Maurya</div>
+    <div class="muted">Web Administrator · Saranda House</div>
+    <div class="meta"><span>Student • Builder</span><span>2026</span></div>
+  </div>
+</div>
+</header>
+
+<section id="about"><div class="container">
+  <div class="section-head"><div class="eyebrow">01 / About</div><h2>Digital work with a student-first mindset.</h2></div>
+  <div class="about">
+    <p>As the Web Admin of Saranda House, my role is to help turn house activities into a smooth digital experience. From maintaining web content to supporting registrations and announcements, I work at the intersection of technology and student community.</p>
+    <div class="stats">
+      <div class="stat"><b>01</b><span>House I support</span></div>
+      <div class="stat"><b>∞</b><span>Ideas to improve</span></div>
+      <div class="stat"><b>Web</b><span>My primary playground</span></div>
+      <div class="stat"><b>24/7</b><span>Digital mindset</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="services"><div class="container">
+  <div class="section-head"><div class="eyebrow">02 / What I Do</div><h2>Keeping Saranda connected.</h2></div>
+  <div class="grid">
+    <article class="service"><div class="icon">🌐</div><h3>Website Management</h3><p>Keeping pages, information and digital resources current and accessible.</p></article>
+    <article class="service"><div class="icon">⚡</div><h3>Updates & Maintenance</h3><p>Handling content changes and helping keep the web experience smooth.</p></article>
+    <article class="service"><div class="icon">📝</div><h3>Registrations & Forms</h3><p>Creating and managing digital flows for events and student activities.</p></article>
+    <article class="service"><div class="icon">📢</div><h3>Announcements</h3><p>Helping important house updates reach students clearly and quickly.</p></article>
+    <article class="service"><div class="icon">📊</div><h3>Data & Content</h3><p>Organising digital information so it stays useful and easy to find.</p></article>
+    <article class="service"><div class="icon">🛠️</div><h3>Technical Support</h3><p>Solving everyday web and digital issues with a practical approach.</p></article>
+  </div>
+</div></section>
+
+<section id="work"><div class="container">
+  <div class="section-head"><div class="eyebrow">03 / Selected Work</div><h2>Things I build & manage.</h2></div>
+  <div class="grid">
+    <article class="project"><div class="eyebrow">HOUSE WEB</div><h3>Saranda House Website</h3><p>A central digital space for house information, activities, announcements and resources.</p><div class="tags"><span class="tag">Web</span><span class="tag">UI</span><span class="tag">Content</span></div></article>
+    <article class="project"><div class="eyebrow">EVENTS</div><h3>Registration Systems</h3><p>Simple digital registration experiences designed to make participation easier for students.</p><div class="tags"><span class="tag">Forms</span><span class="tag">Data</span><span class="tag">UX</span></div></article>
+    <article class="project"><div class="eyebrow">COMMUNITY</div><h3>Digital Updates</h3><p>Organised web content and announcements that help keep the house community informed.</p><div class="tags"><span class="tag">Content</span><span class="tag">Management</span></div></article>
+  </div>
+</div></section>
+
+<section id="skills"><div class="container">
+  <div class="section-head"><div class="eyebrow">04 / Skills</div><h2>Tools I like working with.</h2></div>
+  <div class="grid">
+    <article class="service"><h3>Web</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive Design</span></div></article>
+    <article class="service"><h3>Development</h3><div class="tags"><span class="tag">Python</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Problem Solving</span></div></article>
+    <article class="service"><h3>Data & Design</h3><div class="tags"><span class="tag">Data Management</span><span class="tag">UI/UX Basics</span><span class="tag">Content</span></div></article>
+  </div>
+</div></section>
+
+<section id="contact"><div class="container">
+  <div class="contact">
+    <div class="eyebrow">05 / Contact</div>
+    <h2>Let’s build something useful.</h2>
+    <p class="muted" style="margin:12px 0 22px">Have an idea for Saranda House or want to collaborate on a digital project?</p>
+    <div class="buttons">
+      <a class="btn primary" href="mailto:your-email@example.com">Email me ↗</a>
+      <a class="btn" href="https://github.com/abhinavTmech" target="_blank">GitHub ↗</a>
+      <a class="btn" href="https://linkedin.com/in/abhinav-maurya-881710391" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="container">© 2026 Abhinav Maurya · Web Administrator, Saranda House</div></footer>
+</body>
+</html>
